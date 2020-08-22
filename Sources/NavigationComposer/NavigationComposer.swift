@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct NavigationComposer<Content: View, Navigation: View>: View {
+public struct NavigationComposer<Content: View, Navigation: View>: View {
     let screenCount: Int
     @Binding var currentIndex: Int
     let animation: Animation?
@@ -31,7 +31,7 @@ struct NavigationComposer<Content: View, Navigation: View>: View {
         self.alignment == .horizontal
     }
 
-    var body: some View {
+    public var body: some View {
         GeometryReader { geometry in
             ZStack {
                 Group {
@@ -99,13 +99,13 @@ struct NavigationComposer<Content: View, Navigation: View>: View {
         return CGFloat(self.currentIndex)
     }
 
-    enum Alignment {
+    public enum Alignment {
         case horizontal
         case vertical
     }
 }
 
-extension NavigationComposer where Navigation == EmptyView {
+public extension NavigationComposer where Navigation == EmptyView {
     init(
         screenCount: Int,
         currentIndex: Binding<Int>,
