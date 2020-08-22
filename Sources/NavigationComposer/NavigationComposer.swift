@@ -8,7 +8,7 @@ public struct NavigationComposer<Content: View, Navigation: View>: View {
     let alignment: Alignment
     let content: Content
     let navigation: Navigation?
-    init(
+    public init(
         screenCount: Int,
         currentIndex: Binding<Int>,
         animation: Animation? = .default,
