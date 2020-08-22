@@ -14,14 +14,14 @@ This package offers an alternative solution to some basic navigation types, whic
 
 
 ## Getting Started
-
+NavigationComposer is a Swift package. You can add it to your project via Xcode's File -> Swift Packages -> Add package dependency option. The URL is https://github.com/horvathtamasattila/NavigationComposer.
 
 ## How it works
 The main idea is that all screens you are using are rendered and present at the same time, and with setting `currentIndex` you are basically moving them horizontally or vertically. Please keep in mind that because of this behaviour `onAppear` will not work as you might expect, it will only be triggered when `NavigationComposer` loads, and won't be triggered when you navigate to a specific screen within `content`.
 
 ## Parameters
 This library is highly customizable with the help of the parameters.
-* screenCount: The number of screens you are using. Used to 
+* screenCount: The number of screens you are using.
 * currentIndex: This binding tells the library which screen to show, and it is also modified in case of swiping. You don't have to worry about this value being out of bounds of your screen count, as those occasions are handled within the library.
 * animation: The type of animation you want to use when changing screens. You can also set this to `nil`. The default value is `Animation.default`
 * isSwipeable: Determines if you can use a swipe gesture to change views.
@@ -31,7 +31,7 @@ This library is highly customizable with the help of the parameters.
 
 ## Usage
 
-### Example- Pager:
+### Example - Pager:
 This is a simple swipe-based pager, no navigation elements are used. Alternatively, you can use `alignment: .vertical` for vertical swiping.
 ```swift
 import SwiftUI
@@ -61,7 +61,7 @@ struct Pager: View {
 ```
 
 ### Example - Onboarding:
-This is an onboarding-like navigation, controlled by a `next` and a `back` button. Also an example of how to use `NavigationComposer` with a dynamic number of screens.
+This is an onboarding-like navigation, controlled by a `next` and a `back` button. Also an example of how to use `NavigationComposer` with dynamic screen content.
 ```swift
 import SwiftUI
 import NavigationComposer
@@ -128,7 +128,7 @@ struct Onboarding: View {
     }
 }
 ```
-### TabBar
+### Example - TabBar
 A TabBar implementation.
 ```swift
 import SwiftUI
@@ -220,7 +220,7 @@ struct ContentScreen: View {
 
 ```
 
-### Segmented Control
+### Example - Segmented Control
 A Segmented control implementation.
 ```swift
 import SwiftUI
@@ -302,10 +302,6 @@ struct SegmentedControl: View {
 }
 
 ```
-
-###
-## Todo
-
 
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
