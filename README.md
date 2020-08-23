@@ -32,6 +32,9 @@ The main idea is that all screens you are using are rendered and present at the 
 
 ### Example - Pager:
 This is a simple swipe-based pager, no navigation elements are used. Alternatively, you can use `alignment: .vertical` for vertical swiping.
+
+<img src="/ReadmeAssets/pager.gif" width="300">   <img src="/ReadmeAssets/pager-vertical.gif" width="300">
+
 ```swift
 import SwiftUI
 import NavigationComposer
@@ -61,6 +64,9 @@ struct Pager: View {
 
 ### Example - Onboarding:
 This is an onboarding-like navigation, controlled by a `next` and a `back` button. Also an example of how to use `NavigationComposer` with dynamic screen content.
+
+<img src="/ReadmeAssets/onboarding.gif" width="300">
+
 ```swift
 import SwiftUI
 import NavigationComposer
@@ -128,6 +134,9 @@ struct Onboarding: View {
 }
 ```
 ### Example - TabBar
+
+<img src="/ReadmeAssets/tabbar.gif" width="300">
+
 ```swift
 import SwiftUI
 import NavigationComposer
@@ -219,6 +228,9 @@ struct ContentScreen: View {
 ```
 
 ### Example - Segmented Control
+
+<img src="/ReadmeAssets/segmented-control.gif" width="300">
+
 ```swift
 import SwiftUI
 import NavigationComposer
