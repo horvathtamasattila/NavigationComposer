@@ -20,11 +20,10 @@ NavigationComposer is a Swift package. You can add it to your project via Xcode'
 The main idea is that all screens you are using are rendered and present at the same time, and with setting `currentIndex` you are basically moving them horizontally or vertically. Please keep in mind that because of this behaviour `onAppear` will not work as you might expect, it will only be triggered when `NavigationComposer` loads, and won't be triggered when you navigate to a specific screen within `content`.
 
 ## Parameters
-This library is highly customizable with the help of the parameters.
 * screenCount: The number of screens you are using.
 * currentIndex: This binding tells the library which screen to show, and it is also modified in case of swiping. You don't have to worry about this value being out of bounds of your screen count, as those occasions are handled within the library.
 * animation: The type of animation you want to use when changing screens. You can also set this to `nil`. The default value is `Animation.default`
-* isSwipeable: Determines if you can use a swipe gesture to change views.
+* isSwipeable: Determines if you can use a swipe gesture to change views or not.
 * aligment: With this you can set whether you want your screens aligned and animated horizotally or vertically. The default alignment is horizontal.
 * content: Here come the screens you want to use. Don't put them into any stack, just list them.
 * navigation: Here you can define a UI on top of your content screens which is supposed to handle the navigation(which means manipulating the `currentIndex` bindign), but you can build here any UI you want. This is optional, if you just want to use swipe gesture to navigate or you are manipulating the binding externally, you don't have to use it.
@@ -129,7 +128,6 @@ struct Onboarding: View {
 }
 ```
 ### Example - TabBar
-A TabBar implementation.
 ```swift
 import SwiftUI
 import NavigationComposer
@@ -221,7 +219,6 @@ struct ContentScreen: View {
 ```
 
 ### Example - Segmented Control
-A Segmented control implementation.
 ```swift
 import SwiftUI
 import NavigationComposer
