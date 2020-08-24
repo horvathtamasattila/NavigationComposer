@@ -1,5 +1,5 @@
 # NavigationComposer
-This package offers an alternative solution to basic navigation types, which can be problematic to use or hard to customize if you are trying to use the stock solutions.
+This package offers an alternative solution to basic navigation types like navigation links, tab bar, which can be problematic to use or hard to customize if you are trying to go on with the stock solutions.
 
 ### Pull requests and suggestions welcome :)
 
@@ -14,7 +14,7 @@ This package offers an alternative solution to basic navigation types, which can
 
 
 ## Getting Started
-NavigationComposer is a Swift package. You can add it to your project via Xcode's File -> Swift Packages -> Add package dependency option. The URL is https://github.com/horvathtamasattila/NavigationComposer.
+NavigationComposer is a Swift package. You can add it to your project via Xcode's File -> Swift Packages -> Add package dependency option. The URL is https://github.com/horvathtamasattila/NavigationComposer
 
 ## How it works
 The main idea is that all screens you are using are rendered and present at the same time, and with setting `currentIndex`, you are moving them horizontally or vertically. Please keep in mind that because of this behavior, ` onAppear` will not work as you might expect. It will only be triggered when `NavigationComposer` loads, and won't be triggered when you navigate to a specific screen within `content`.
