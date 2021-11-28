@@ -1,7 +1,7 @@
 import NavigationComposer
 import SwiftUI
 
-struct TabBar: View {
+struct VerticallyAttachedTabBar: View {
     @State var currentTab: Int = 0
     var body: some View {
         NavigationComposer(
@@ -18,13 +18,13 @@ struct TabBar: View {
             },
             navigation: {
                 self.tabBar
-            }
+            },
+            navigationPosition: .bottom
         )
     }
 
     var tabBar: some View {
-        VStack(spacing: 0) {
-            Spacer()
+        VStack {
             HStack {
                 Group {
                     Spacer()
@@ -38,52 +38,15 @@ struct TabBar: View {
                     Spacer()
                 }
                 .foregroundColor(.black)
-                .padding(.bottom, 16)
             }
-            .frame(height: 80)
+            .frame(height: 64)
             .background(Color.gray)
-            .cornerRadius(16)
-            .padding(.bottom, -16)
-            Color.gray
-                .edgesIgnoringSafeArea(.bottom)
-                .frame(height: 20)
-                .padding(.bottom, -20)
         }
     }
 }
 
-struct TabBarButton: View {
-    let label: String
-    let image: String
-    let action: () -> Void
-    var body: some View {
-        Button(
-            action: { self.action() },
-            label: {
-                VStack {
-                    Image(systemName: image)
-                    Text(label)
-                        .font(.caption)
-                }
-            }
-        )
-    }
-}
-
-struct ContentScreen: View {
-    let title: String
-    let description: String
-    var body: some View {
-        ZStack {
-            Color.white
-            VStack {
-                Text(title)
-                    .font(.largeTitle)
-                    .padding(.bottom, 40)
-                Text(description)
-                    .font(.body)
-            }
-        }
-
+struct FixedTabBar_Previews: PreviewProvider {
+    static var previews: some View {
+        VerticallyAttachedTabBar()
     }
 }

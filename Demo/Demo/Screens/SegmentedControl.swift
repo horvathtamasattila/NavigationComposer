@@ -21,7 +21,7 @@ struct SegmentedControl: View {
                     .padding(.top, 80)
                 },
                 navigation: {
-                        self.segmentedNavigation
+                    self.segmentedNavigation
                 }
             )
         }
@@ -69,7 +69,8 @@ struct SegmentedControl: View {
                 .frame(width: geometry.size.width - 2 * 16, height: 37)
                 .background(Color.white)
                 .cornerRadius(8)
-                .padding(.top, 10)
+                .padding(.top, 8)
+                .padding(.horizontal, 16)
                 Spacer()
             }
         }

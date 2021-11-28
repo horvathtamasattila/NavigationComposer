@@ -13,6 +13,7 @@
 		FE2DE2C224F154670000AA28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE2DE2C124F154670000AA28 /* Assets.xcassets */; };
 		FE2DE2C524F154670000AA28 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE2DE2C424F154670000AA28 /* Preview Assets.xcassets */; };
 		FE2DE2C824F154670000AA28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE2DE2C624F154670000AA28 /* LaunchScreen.storyboard */; };
+		FE7AD30A275299E100ABE796 /* VerticallyAttachedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7AD309275299E100ABE796 /* VerticallyAttachedTabBar.swift */; };
 		FE99C44924F262E9001C6572 /* NavigationComposer in Frameworks */ = {isa = PBXBuildFile; productRef = FE99C44824F262E9001C6572 /* NavigationComposer */; };
 		FE99C45124F26652001C6572 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99C44C24F26652001C6572 /* TabBar.swift */; };
 		FE99C45224F26652001C6572 /* Pager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE99C44D24F26652001C6572 /* Pager.swift */; };
@@ -30,6 +31,7 @@
 		FE2DE2C424F154670000AA28 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FE2DE2C724F154670000AA28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE2DE2C924F154670000AA28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE7AD309275299E100ABE796 /* VerticallyAttachedTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticallyAttachedTabBar.swift; sourceTree = "<group>"; };
 		FE99C44624F262CE001C6572 /* NavigationComposer */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NavigationComposer; path = ../..; sourceTree = "<group>"; };
 		FE99C44C24F26652001C6572 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		FE99C44D24F26652001C6572 /* Pager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pager.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				FE99C44D24F26652001C6572 /* Pager.swift */,
 				FE99C44F24F26652001C6572 /* SegmentedControl.swift */,
 				FE99C44C24F26652001C6572 /* TabBar.swift */,
+				FE7AD309275299E100ABE796 /* VerticallyAttachedTabBar.swift */,
 				FE99C45024F26652001C6572 /* VerticalPager.swift */,
 			);
 			path = Screens;
@@ -191,6 +194,7 @@
 				FE2DE2BE24F154650000AA28 /* SceneDelegate.swift in Sources */,
 				FE2DE2C024F154650000AA28 /* RootView.swift in Sources */,
 				FE99C45124F26652001C6572 /* TabBar.swift in Sources */,
+				FE7AD30A275299E100ABE796 /* VerticallyAttachedTabBar.swift in Sources */,
 				FE99C45524F26652001C6572 /* VerticalPager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
