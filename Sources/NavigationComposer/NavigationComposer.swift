@@ -3,7 +3,6 @@ import SwiftUI
 public struct NavigationComposer<Content: View, Navigation: View>: View {
     let screenCount: Int
     @Binding var currentIndex: Int
-    let animation: Animation?
     let isSwipeable: Bool
     let alignment: Alignment
     let content: Content
@@ -12,7 +11,6 @@ public struct NavigationComposer<Content: View, Navigation: View>: View {
     public init(
         screenCount: Int,
         currentIndex: Binding<Int>,
-        animation: Animation? = .default,
         isSwipeable: Bool = false,
         alignment: Alignment = .horizontal,
         @ViewBuilder content: () -> Content,
@@ -21,7 +19,6 @@ public struct NavigationComposer<Content: View, Navigation: View>: View {
     ) {
         self.screenCount = screenCount
         self._currentIndex = currentIndex
-        self.animation = animation
         self.isSwipeable = isSwipeable
         self.alignment = alignment
         self.content = content()
@@ -40,7 +37,6 @@ public struct NavigationComposer<Content: View, Navigation: View>: View {
                             geometry: geometry,
                             screenCount: screenCount,
                             currentIndex: $currentIndex,
-                            animation: animation,
                             isSwipeable: isSwipeable,
                             alignment: alignment,
                             content: content
@@ -52,7 +48,6 @@ public struct NavigationComposer<Content: View, Navigation: View>: View {
                             geometry: geometry,
                             screenCount: screenCount,
                             currentIndex: $currentIndex,
-                            animation: animation,
                             isSwipeable: isSwipeable,
                             alignment: alignment,
                             content: content
@@ -66,7 +61,6 @@ public struct NavigationComposer<Content: View, Navigation: View>: View {
                         geometry: geometry,
                         screenCount: screenCount,
                         currentIndex: $currentIndex,
-                        animation: animation,
                         isSwipeable: isSwipeable,
                         alignment: alignment,
                         content: content
@@ -81,7 +75,6 @@ public struct NavigationComposer<Content: View, Navigation: View>: View {
         let geometry: GeometryProxy
         let screenCount: Int
         @Binding var currentIndex: Int
-        let animation: Animation?
         let isSwipeable: Bool
         let alignment: Alignment
         let content: Content
@@ -92,6 +85,15 @@ public struct NavigationComposer<Content: View, Navigation: View>: View {
         }
 
         var body: some View {
+            if isSwipeable {
+                core
+                    .animation(.interactiveSpring())
+            } else {
+                core
+            }
+        }
+
+        var core: some View {
             Group {
                 if self.isHorizontal {
                     HStack(spacing: 0) {
@@ -116,13 +118,13 @@ public struct NavigationComposer<Content: View, Navigation: View>: View {
                 x: self.isHorizontal ? self.translation : 0,
                 y: !self.isHorizontal ? self.translation : 0
             )
-            .animation(self.animation)
             .gesture(
                 DragGesture().updating(self.$translation) { value, state, _ in
                     if self.isSwipeable {
                         state = self.isHorizontal ? value.translation.width : value.translation.height
                     }
-                }.onEnded { value in
+                }
+                .onEnded { value in
                     if self.isSwipeable {
                         let offset =
                             self.isHorizontal ?
@@ -169,14 +171,12 @@ public extension NavigationComposer where Navigation == EmptyView {
     init(
         screenCount: Int,
         currentIndex: Binding<Int>,
-        animation: Animation? = .default,
         isSwipeable: Bool = false,
         alignment: Alignment = .horizontal,
         @ViewBuilder content: () -> Content
     ) {
         self.screenCount = screenCount
         self._currentIndex = currentIndex
-        self.animation = animation
         self.isSwipeable = isSwipeable
         self.alignment = alignment
         self.content = content()

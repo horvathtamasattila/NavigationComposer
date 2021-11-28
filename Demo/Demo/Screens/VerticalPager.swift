@@ -7,7 +7,6 @@ struct VerticalPager: View {
         NavigationComposer(
             screenCount: 7,
             currentIndex: $idx,
-            animation: .interactiveSpring(),
             isSwipeable: true,
             alignment: .vertical,
             content: {

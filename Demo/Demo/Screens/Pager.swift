@@ -7,7 +7,6 @@ struct Pager: View {
         NavigationComposer(
             screenCount: 7,
             currentIndex: $idx,
-            animation: .interactiveSpring(),
             isSwipeable: true,
             content: {
                 Color.blue

@@ -8,7 +8,6 @@ struct Onboarding: View {
         NavigationComposer(
             screenCount: onboardingContent.count,
             currentIndex: $idx,
-            animation: .interactiveSpring(),
             content: { self.content },
             navigation: { self.navigation }
         )
@@ -26,7 +25,7 @@ struct Onboarding: View {
         VStack(spacing: 0) {
             Spacer()
             Button(
-                action: { self.idx += 1 },
+                action: { withAnimation(.interactiveSpring()) { self.idx += 1 } },
                 label: {
                     Text("Next")
                         .frame(maxWidth: .infinity, maxHeight: 53)
@@ -44,7 +43,7 @@ struct Onboarding: View {
                     trailing: 15
                 ))
             Button(
-                action: { self.idx -= 1 },
+                action: { withAnimation(.interactiveSpring()) { self.idx -= 1 } },
                 label: {
                     Text("Back")
                         .frame(maxWidth: .infinity, maxHeight: 53)

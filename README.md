@@ -45,7 +45,6 @@ struct Pager: View {
         NavigationComposer(
             screenCount: 7,
             currentIndex: $idx,
-            animation: .interactiveSpring(),
             isSwipeable: true,
             content: {
                 Color.blue
@@ -68,8 +67,8 @@ This is an onboarding-like navigation, controlled by a `Next` and a `Back` butto
 <img src="/ReadmeAssets/onboarding.gif" width="300">
 
 ```swift
-import SwiftUI
 import NavigationComposer
+import SwiftUI
 
 struct Onboarding: View {
     @State var idx = 0
@@ -78,7 +77,6 @@ struct Onboarding: View {
         NavigationComposer(
             screenCount: onboardingContent.count,
             currentIndex: $idx,
-            animation: .interactiveSpring(),
             content: { self.content },
             navigation: { self.navigation }
         )
@@ -96,7 +94,7 @@ struct Onboarding: View {
         VStack(spacing: 0) {
             Spacer()
             Button(
-                action: { self.idx += 1 },
+                action: { withAnimation(.interactiveSpring()) { self.idx += 1 } },
                 label: {
                     Text("Next")
                         .frame(maxWidth: .infinity, maxHeight: 53)
@@ -114,7 +112,7 @@ struct Onboarding: View {
                     trailing: 15
                 ))
             Button(
-                action: { self.idx -= 1 },
+                action: { withAnimation(.interactiveSpring()) { self.idx -= 1 } },
                 label: {
                     Text("Back")
                         .frame(maxWidth: .infinity, maxHeight: 53)
@@ -138,8 +136,8 @@ struct Onboarding: View {
 <img src="/ReadmeAssets/tabbar.gif" width="300">
 
 ```swift
-import SwiftUI
 import NavigationComposer
+import SwiftUI
 
 struct TabBar: View {
     @State var currentTab: Int = 0
@@ -168,13 +166,13 @@ struct TabBar: View {
             HStack {
                 Group {
                     Spacer()
-                    TabBarButton(label: "Books", image: "book", action: { self.currentTab = 0 })
+                    TabBarButton(label: "Books", image: "book", action: { withAnimation { self.currentTab = 0 } })
                     Spacer()
-                    TabBarButton(label: "Profile", image: "person.circle", action: { self.currentTab = 1 })
+                    TabBarButton(label: "Profile", image: "person.circle", action: { withAnimation { self.currentTab = 1 } })
                     Spacer()
-                    TabBarButton(label: "Share", image: "square.and.arrow.up", action: { self.currentTab = 2 })
+                    TabBarButton(label: "Share", image: "square.and.arrow.up", action: { withAnimation  { self.currentTab = 2 } })
                     Spacer()
-                    TabBarButton(label: "Buy", image: "cart", action: { self.currentTab = 3 })
+                    TabBarButton(label: "Buy", image: "cart", action: {  withAnimation { self.currentTab = 3 } })
                     Spacer()
                 }
                 .foregroundColor(.black)
@@ -214,12 +212,15 @@ struct ContentScreen: View {
     let title: String
     let description: String
     var body: some View {
-        VStack {
-            Text(title)
-                .font(.largeTitle)
-                .padding(.bottom, 40)
-            Text(description)
-                .font(.body)
+        ZStack {
+            Color.white
+            VStack {
+                Text(title)
+                    .font(.largeTitle)
+                    .padding(.bottom, 40)
+                Text(description)
+                    .font(.body)
+            }
         }
 
     }
@@ -234,8 +235,8 @@ It may also be useful to attach your navigation UI in a vertically with your con
 <img src="/ReadmeAssets/segmented-control.gif" width="300">
 
 ```swift
-import SwiftUI
 import NavigationComposer
+import SwiftUI
 
 struct SegmentedControl: View {
     @State var page = 0
@@ -246,7 +247,6 @@ struct SegmentedControl: View {
             NavigationComposer(
                 screenCount: 2,
                 currentIndex: self.$page,
-                animation: .interactiveSpring(),
                 isSwipeable: true,
                 content: {
                     Group {
@@ -257,7 +257,7 @@ struct SegmentedControl: View {
                     .padding(.top, 80)
                 },
                 navigation: {
-                        self.segmentedNavigation
+                    self.segmentedNavigation
                 }
             )
         }
@@ -282,7 +282,7 @@ struct SegmentedControl: View {
                         )
                         .cornerRadius(8)
                         .onTapGesture {
-                            withAnimation { self.page = 0 }
+                            withAnimation(.interactiveSpring()) { self.page = 0 }
                         }
                     Text("Page 2")
                         .frame(width: geometry.size.width / 2, height: 37)
@@ -299,19 +299,19 @@ struct SegmentedControl: View {
                         )
                         .cornerRadius(8)
                         .onTapGesture {
-                            withAnimation { self.page = 1 }
+                            withAnimation(.interactiveSpring()) { self.page = 1 }
                         }
                 }
                 .frame(width: geometry.size.width - 2 * 16, height: 37)
                 .background(Color.white)
                 .cornerRadius(8)
-                .padding(.top, 10)
+                .padding(.top, 8)
+                .padding(.horizontal, 16)
                 Spacer()
             }
         }
     }
 }
-
 ```
 
 ## License

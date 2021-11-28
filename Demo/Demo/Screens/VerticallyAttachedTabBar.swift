@@ -28,13 +28,13 @@ struct VerticallyAttachedTabBar: View {
             HStack {
                 Group {
                     Spacer()
-                    TabBarButton(label: "Books", image: "book", action: { self.currentTab = 0 })
+                    TabBarButton(label: "Books", image: "book", action: { withAnimation { self.currentTab = 0 } })
                     Spacer()
-                    TabBarButton(label: "Profile", image: "person.circle", action: { self.currentTab = 1 })
+                    TabBarButton(label: "Profile", image: "person.circle", action: { withAnimation { self.currentTab = 1 } })
                     Spacer()
-                    TabBarButton(label: "Share", image: "square.and.arrow.up", action: { self.currentTab = 2 })
+                    TabBarButton(label: "Share", image: "square.and.arrow.up", action: { withAnimation { self.currentTab = 2 } })
                     Spacer()
-                    TabBarButton(label: "Buy", image: "cart", action: { self.currentTab = 3 })
+                    TabBarButton(label: "Buy", image: "cart", action: { withAnimation { self.currentTab = 3 } })
                     Spacer()
                 }
                 .foregroundColor(.black)

@@ -10,7 +10,6 @@ struct SegmentedControl: View {
             NavigationComposer(
                 screenCount: 2,
                 currentIndex: self.$page,
-                animation: .interactiveSpring(),
                 isSwipeable: true,
                 content: {
                     Group {
@@ -46,7 +45,7 @@ struct SegmentedControl: View {
                         )
                         .cornerRadius(8)
                         .onTapGesture {
-                            withAnimation { self.page = 0 }
+                            withAnimation(.interactiveSpring()) { self.page = 0 }
                         }
                     Text("Page 2")
                         .frame(width: geometry.size.width / 2, height: 37)
@@ -63,7 +62,7 @@ struct SegmentedControl: View {
                         )
                         .cornerRadius(8)
                         .onTapGesture {
-                            withAnimation { self.page = 1 }
+                            withAnimation(.interactiveSpring()) { self.page = 1 }
                         }
                 }
                 .frame(width: geometry.size.width - 2 * 16, height: 37)
