@@ -227,7 +227,7 @@ struct ContentScreen: View {
 
 ```
 
-It may also be useful to attach your navigation UI in a vertically with your content, so you don't have to do extra calculations for your view to be presented correctly. You can use the `navigationPosition` parameter for that, with the possible values `.top` or `.bottom`, so your UI will be attached to the top/bottom of your content in a VStack. The example code is pretty similar to this one as it uses the tab bar example, check the `Vertically attached navigation` section to see more.
+It may also be useful to attach your navigation UI in a vertically with your content, so you don't have to do extra calculations for your view to be presented correctly. You can use the `navigationPosition` parameter for that, with the possible values `.top` or `.bottom`, so your UI will be attached to the top/bottom of your content in a VStack. The example code is pretty similar to this one as it uses the tab bar example, check the `Vertically attached tab bar` section to see more.
 
 ### Example - Segmented Control
 
