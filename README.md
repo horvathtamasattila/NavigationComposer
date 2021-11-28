@@ -22,11 +22,12 @@ The main idea is that all screens you are using are rendered and present at the 
 ## Parameters
 * screenCount: The number of screens you are using.
 * currentIndex: This binding tells the library which screen to show, and it is also modified in case of swiping. You don't have to worry about this value under or overflowing, as those cases are handled within the library.
-* animation: The type of animation you want to use when changing screens. You can also set this to `nil`. The default value is `Animation.default`
 * isSwipeable: Determines if you can use a swipe gesture to change views or not.
 * alignment: With this, you can set whether you want your screens aligned and animated horizontally or vertically. The default alignment is horizontal.
 * content: Here come the screens you want to use. Don't put them into any stack, just list them as shown in the examples.
 * navigation: Here you can define a UI on top of your content screens which is supposed to handle the navigation(which means manipulating the `currentIndex` binding), but you can build here any UI you want. This parameter is optional. If you want to use swipe gestures only to navigate or you are manipulating the binding externally, you don't have to use it.
+
+**1.3.0 update: In earlier version there is a `animation` parameter, but it was removed. Use `withAnimation` in your logic when changing the index, this way more complex animations won't get mixed up**
 
 ## Usage
 
