@@ -34,9 +34,8 @@ public struct NavigationComposer<Content: View, Navigation: View>: View {
             if let navigationPosition = self.navigationPosition {
                 switch navigationPosition {
                 case .top:
-                    VStack {
+                    VStack(spacing: .zero) {
                         self.navigation
-                            .animation(self.animation)
                         Core(
                             geometry: geometry,
                             screenCount: screenCount,
@@ -48,7 +47,7 @@ public struct NavigationComposer<Content: View, Navigation: View>: View {
                         )
                     }
                 case .bottom:
-                    VStack {
+                    VStack(spacing: .zero) {
                         Core(
                             geometry: geometry,
                             screenCount: screenCount,
@@ -59,7 +58,6 @@ public struct NavigationComposer<Content: View, Navigation: View>: View {
                             content: content
                         )
                         self.navigation
-                            .animation(self.animation)
                     }
                 }
             } else {
@@ -74,7 +72,6 @@ public struct NavigationComposer<Content: View, Navigation: View>: View {
                         content: content
                     )
                     self.navigation
-                        .animation(self.animation)
                 }
             }
         }
